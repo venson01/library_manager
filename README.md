@@ -101,10 +101,3 @@ Specify a license in `package.json` or add a `LICENSE` file.
 
 ---
 
-If you'd like, I can:
-
-- add example `.env` + `.env.example`
-- run the dev server and verify startup
-- create Postman collection / example requests
-
-Tell me which you'd prefer next.
