@@ -40,12 +40,11 @@ npm install
 
 2. Create environment variables (example)
 
-```env
-PORT=3000
+```envA
 DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=library
-DB_USER=postgres
+PORT=5005
+DB_NAME=Library_manager_ts
+DB_USER=vensonlala_db_user
 DB_PASSWORD=yourpassword
 JWT_SECRET=your_jwt_secret
 ```
