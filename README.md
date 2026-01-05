@@ -71,7 +71,7 @@ npm start
 
 ## API Endpoints (overview)
 
-- `POST /api/auth/register` — register user
+- `POST /api/auth` — register user
 - `POST /api/auth/login` — login returns JWT
 - `GET /api/authors` — list authors
 - `POST /api/authors` — create author
