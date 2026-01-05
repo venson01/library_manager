@@ -11,7 +11,7 @@ const router = express.Router();
 router.post('/', requireAuth, requiredLibrarian, createBook);
 router.get('/', getBooks);
 router.get('/:title', getBookByName);
-router.get('/:id', getBookById);
+router.get('/book/:id', getBookById);
 router.put('/:id', requireAuth, requiredLibrarian, updateBook);
 router.delete('/:id', requireAuth, requiredLibrarian, deleteBook);
 

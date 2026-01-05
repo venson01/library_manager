@@ -7,10 +7,10 @@ export const responseHandler = (
     next: NextFunction
 ) => {
     res.success = function <T = any>(message: string, data?: T, statusCode: number = 200) {
-        return res.status(statusCode).json({
+        return this.status(statusCode).json({
             success: true,
             message,
-            data: data ?? null
+            data: data ?? null,
         });
     };
 

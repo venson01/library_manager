@@ -40,7 +40,7 @@ export const getBookById = async (req: Request, res: Response) => {
     }
 
     const book = await getBookByIdService(id);
-    return res.success("Book retrieved successfully", book, 200);
+    res.success("Book retrieved successfully", book, 200);
 };
 
 // Controller to handle updating a book by ID
@@ -56,7 +56,7 @@ export const updateBook = async (req: Request, res: Response) => {
     return res.success("Book updated successfully", book, 200);
 }
 
-// Controller to handle deleting a book by ID
+// Controller to handle deleting a book by ID 
 export const deleteBook = async (req: Request, res: Response) => {
     const { id } = req.params;
 

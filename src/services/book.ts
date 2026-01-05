@@ -1,4 +1,5 @@
 import { IBook, Book } from "../models/Book";
+import { IAuthor, Author } from "../models/Author";
 import { AppError } from "../utils/appError";
 
 // Service to create a new book
@@ -11,14 +12,19 @@ export const createBookService = async (payload: IBook) => {
         throw new AppError(`Book with ISBN: ${isbn} already exist`, 400);
     }
 
+    const authorExists = await Author.findById(authorId);
+    if (!authorExists) {
+        throw new AppError(`Author with ID: ${authorId} does not exist`, 404);
+    }
+
     const book = await Book.create({...payload});
 
     return book;
 }
 
 // Service to get all books
-export const getBooksService = async (req: Request, res: Response) => {
-    const books = await Book.find();
+export const getBooksService = async () => {
+    const books = await Book.find().populate("authorId", "name birthYear country").exec();
 
     return books;
 };
@@ -29,7 +35,7 @@ export const getBookByNameService = async (name: string) => {
 
     const book = await Book.find({
         title: { $regex: name, $options: "i" },
-    });
+    }).populate("authorId", "name birthYear country").exec();
 
     if (!book) {
         throw new AppError("Book not found", 404);
@@ -39,8 +45,8 @@ export const getBookByNameService = async (name: string) => {
 }
 
 // Service to get a book by ID
-export const getBookByIdService = async (_id: string) => {
-    const book = await Book.findById(_id);
+export const getBookByIdService = async (id: string) => {
+    const book = await Book.findById(id).populate("authorId", "name birthYear country").exec();
 
     if (!book) {
         throw new AppError("Book not found", 404);

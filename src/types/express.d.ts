@@ -4,7 +4,7 @@ import { RoleEnum } from '../models/User';
 // Extending Express Response interface
 declare module 'express-serve-static-core' {
     interface Response {
-        success<T = any>(message: string, data?: T, statusCode?: number): this;
+        success(message: string, data?: any, statusCode?: number): this;
         error(message: string, statusCode?: number, details?: any): this;
     }
 }
