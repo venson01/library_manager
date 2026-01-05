@@ -40,12 +40,11 @@ npm install
 
 2. Create environment variables (example)
 
-```env
-PORT=3000
+```envA
 DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=library
-DB_USER=postgres
+PORT=5005
+DB_NAME=Library_manager_ts
+DB_USER=vensonlala_db_user
 DB_PASSWORD=yourpassword
 JWT_SECRET=your_jwt_secret
 ```
@@ -71,7 +70,7 @@ npm start
 
 ## API Endpoints (overview)
 
-- `POST /api/auth/register` — register user
+- `POST /api/auth` — register user
 - `POST /api/auth/login` — login returns JWT
 - `GET /api/authors` — list authors
 - `POST /api/authors` — create author
@@ -101,10 +100,3 @@ Specify a license in `package.json` or add a `LICENSE` file.
 
 ---
 
-If you'd like, I can:
-
-- add example `.env` + `.env.example`
-- run the dev server and verify startup
-- create Postman collection / example requests
-
-Tell me which you'd prefer next.
